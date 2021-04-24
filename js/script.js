@@ -15,8 +15,22 @@
     }
   }
 
+  function percentage() {
+    // TODO:
+  }
+
   function addToInput(action) {
     input += action;
+  }
+
+  function divide() {}
+  function multiply() {}
+  function minus() {}
+  function plus() {}
+  function calculate() {}
+
+  function clear() {
+    input = '';
   }
 
   buttons.addEventListener('click', e => {
@@ -28,6 +42,22 @@
         break;
       case 'toggle-plus-minus':
         togglePlusMinus();
+        break;
+      case 'percentage':
+        percentage();
+        break;
+      case 'divide':
+        divide();
+      case 'multiply':
+        multiply();
+      case 'minus':
+        minus();
+      case 'plus':
+        plus();
+      case 'clear':
+        clear();
+      case 'calculate':
+        calculate();
         break;
       default:
         addToInput(action);
