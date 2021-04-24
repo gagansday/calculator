@@ -351,6 +351,10 @@ template {
 }
 
 /* ------------------------------- Calculator Styles ------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
@@ -363,11 +367,30 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fbe299+0,f57e72+100 */
+  background: rgb(251, 226, 153); /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(251, 226, 153, 1) 0%,
+    rgba(245, 126, 114, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(251, 226, 153, 1) 0%,
+    rgba(245, 126, 114, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(251, 226, 153, 1) 0%,
+    rgba(245, 126, 114, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbe299', endColorstr='#f57e72',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .calculator {
-  width: 245px;
-  height: 435px;
+  box-shadow: -10px 10px 18px -10px rgba(0, 0, 0, 0.75);
   background-color: #f1f1f1;
 }
 
@@ -383,4 +406,33 @@ body {
 .calculator__display--text {
   font-size: 48px;
   color: #e3e6e9;
+}
+
+.calculator__buttons {
+  display: grid;
+  background-color: #e3e3e3;
+  grid-gap: 1px;
+  grid-template-columns: auto auto auto auto;
+}
+
+.calculator__buttons button {
+  border: none;
+  font-size: 28px;
+  background-color: #f1f1f1;
+  width: 62px;
+  height: 62px;
+  padding: 0;
+}
+
+.calculator__buttons button:hover {
+  background-color: #e3e3e3;
+}
+
+.calculator__buttons button:nth-child(4n) {
+  color: #f1f1f1;
+  background-color: #f57e72;
+}
+
+.calculator__buttons button:nth-child(4n):hover {
+  background-color: #f76c5f;
 }
