@@ -36,6 +36,7 @@
   buttons.addEventListener('click', e => {
     const action = e.target.dataset.action;
 
+    if (!action) return;
     switch (action) {
       case 'backspace':
         backspace();
