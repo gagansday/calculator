@@ -1,6 +1,7 @@
 (function () {
   const buttons = document.querySelector('.calculator__buttons');
   const mainDisplayBox = document.querySelector('.calculator__display--text');
+  let values = [];
   let input = '';
 
   function backspace() {
@@ -8,6 +9,7 @@
   }
 
   function togglePlusMinus() {
+    input = input.toString();
     if (input.slice(0, 1) === '-') {
       input = input.slice(1);
     } else {
@@ -23,11 +25,9 @@
     input += action;
   }
 
-  function divide() {}
-  function multiply() {}
-  function minus() {}
-  function plus() {}
-  function calculate() {}
+  function calculate() {
+    input = eval(input).toString();
+  }
 
   function clear() {
     input = '';
@@ -44,19 +44,12 @@
       case 'toggle-plus-minus':
         togglePlusMinus();
         break;
-      case 'percentage':
+      case '%':
         percentage();
         break;
-      case 'divide':
-        divide();
-      case 'multiply':
-        multiply();
-      case 'minus':
-        minus();
-      case 'plus':
-        plus();
       case 'clear':
         clear();
+        break;
       case 'calculate':
         calculate();
         break;
@@ -65,7 +58,6 @@
         break;
     }
 
-    console.log(input);
     mainDisplayBox.innerHTML = input;
   });
 })();
