@@ -17,15 +17,32 @@
     }
   }
 
+  function isOperator(str) {
+    return ['-', '+', '*', '/'].includes(str);
+  }
+
   function percentage() {
     // TODO:
   }
 
   function addToInput(action) {
+    if (input.length === 0 && isOperator(action)) return;
+
+    if (
+      isOperator(input.substr(input.length > 0 ? input.length - 1 : 1)) &&
+      isOperator(action)
+    )
+      return;
+
     input += action;
   }
 
   function calculate() {
+    if (!input.length) return;
+
+    if (isOperator(input.substr(input.length - 1)))
+      input = input.slice(0, input.length - 1);
+
     input = eval(input).toString();
   }
 
